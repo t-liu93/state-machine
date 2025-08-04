@@ -20,6 +20,8 @@ public:
     virtual ~State() = default;
     virtual void onEnter(StateMachine &machine) = 0;
     virtual void onExit(StateMachine &machine) = 0;
+    StateId getId() const { return id; }
+    const std::string &getName() const { return name; }
 
 private:
     std::string name;
@@ -29,7 +31,7 @@ private:
 class StateMachine
 {
 public:
-    StateMachine() = default;
+    StateMachine();
     ~StateMachine() = default;
 
     void addState(std::unique_ptr<State> state);

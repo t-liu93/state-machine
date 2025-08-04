@@ -5,6 +5,8 @@ State::State(const std::string &name, StateId id)
 {
 }
 
+StateMachine::StateMachine() : currentState(nullptr) {}
+
 void StateMachine::addState(std::unique_ptr<State> state)
 {
     states[state->id] = std::move(state);
@@ -24,7 +26,6 @@ void StateMachine::setInitialState(StateId id)
 
 void StateMachine::handleEvent(EventId event)
 {
-    // Handle event and transition to the next state
 }
 
 void StateMachine::update()
