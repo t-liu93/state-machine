@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 project(state-machine LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -13,8 +13,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-add_library(state-machine
-    src/statemachine.cpp
+add_library(state-machine INTERFACE
+    include/statemachine.hpp
 )
 
 add_executable(state-machine-test
@@ -30,3 +30,6 @@ target_link_libraries(state-machine-test PRIVATE
     gtest
     gtest_main
 )
+
+include(GoogleTest)
+gtest_discover_tests(state-machine-test)
