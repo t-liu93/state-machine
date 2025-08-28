@@ -31,4 +31,5 @@ target_link_libraries(state-machine-test PRIVATE
     gtest_main
 )
 
-add_test(NAME state-machine-test COMMAND state-machine-test)
+include(GoogleTest)
+gtest_discover_tests(state-machine-test)
