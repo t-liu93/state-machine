@@ -13,8 +13,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
-add_library(state-machine
-    src/statemachine.cpp
+add_library(state-machine INTERFACE
+    include/statemachine.hpp
 )
 
 add_executable(state-machine-test
